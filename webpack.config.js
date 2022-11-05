@@ -5,12 +5,14 @@ const HtmlCriticalPlugin = require("html-critical-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
+const DOCS_DIR = path.resolve(__dirname, "docs");
+
 const config = {
     mode: "production",
     devtool: "source-map",
     devServer: {
         static: {
-            directory: path.resolve(__dirname, "docs"),
+            directory: DOCS_DIR
         },
         port: 4200,
     },
@@ -18,7 +20,7 @@ const config = {
         script: path.resolve(__dirname, "src", "scripts.js"),
     },
     output: {
-        path: path.resolve(__dirname, "docs"),
+        path: DOCS_DIR,
         filename: "[name].[contenthash].js",
         assetModuleFilename: "assets/[name][ext][query]",
         clean: true,
@@ -45,7 +47,7 @@ const config = {
         }),
         new MiniCssExtractPlugin(),
         new HtmlCriticalPlugin({
-            base: path.resolve(__dirname, "docs"),
+            base: DOCS_DIR,
             src: "index.html",
             dest: "index.html",
             inline: true,

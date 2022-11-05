@@ -5,10 +5,10 @@
   "scripts": {
     "build": "webpack",
     "prebuild:images": "node ./scripts/img-build.js",
-    "serve": "webpack serve"
+    "serve": "webpack serve",
+    "build_webpack": "rm -rf ./docs && webpack --mode=production --node-env=production --stats-error-details"
   },
   "devDependencies": {
-    "critical": "^5.0.3",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.2.2",
     "html-critical-webpack-plugin": "^2.1.0",
