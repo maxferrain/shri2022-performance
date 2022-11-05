@@ -10,7 +10,7 @@ const config = {
     devtool: "source-map",
     devServer: {
         static: {
-            directory: path.resolve(__dirname, "dist"),
+            directory: path.resolve(__dirname, "docs"),
         },
         port: 4200,
     },
@@ -18,7 +18,7 @@ const config = {
         script: path.resolve(__dirname, "src", "scripts.js"),
     },
     output: {
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, "docs"),
         filename: "[name].[contenthash].js",
         assetModuleFilename: "assets/[name][ext][query]",
         clean: true,
@@ -45,7 +45,7 @@ const config = {
         }),
         new MiniCssExtractPlugin(),
         new HtmlCriticalPlugin({
-            base: path.resolve(__dirname, "dist"),
+            base: path.resolve(__dirname, "docs"),
             src: "index.html",
             dest: "index.html",
             inline: true,
