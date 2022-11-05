@@ -61,8 +61,10 @@ const config = {
         }),
     ],
     optimization: {
-        chunkIds: "named",
+        chunkIds: "deterministic",
         minimize: true,
+        realContentHash: false,
+        removeAvailableModules: true,
         minimizer: [new CssMinimizerPlugin(), new TerserPlugin({ parallel: true })],
     }
 }
