@@ -9,7 +9,7 @@ const DOCS_DIR = path.resolve(__dirname, "docs");
 
 const config = {
     mode: "production",
-    devtool: "source-map",
+    // devtool: "source-map",
     devServer: {
         static: {
             directory: DOCS_DIR
@@ -29,7 +29,7 @@ const config = {
         rules: [
             {
                 test: /.css$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader"],
+                use: [MiniCssExtractPlugin.loader, "css-loader"]
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
@@ -65,7 +65,9 @@ const config = {
         minimize: true,
         realContentHash: false,
         removeAvailableModules: true,
-        minimizer: [new CssMinimizerPlugin(), new TerserPlugin({ parallel: true })],
+        minimizer: [new CssMinimizerPlugin({
+            parallel: true,
+        }), new TerserPlugin({ parallel: true })],
     }
 }
 
