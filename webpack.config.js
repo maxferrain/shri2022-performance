@@ -65,6 +65,18 @@ const config = {
         minimize: true,
         realContentHash: false,
         removeAvailableModules: true,
+        innerGraph: true,
+        concatenateModules: true,
+        mergeDuplicateChunks: true,
+        removeEmptyChunks: true,
+        runtimeChunk: {
+            name: 'runtime'
+        },
+        splitChunks: {
+            minChunks: 2,
+            chunks: 'all',
+            minSize: 1,
+        },
         minimizer: [new CssMinimizerPlugin({
             parallel: true,
         }), new TerserPlugin({ parallel: true })],
